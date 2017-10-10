@@ -1,0 +1,46 @@
+﻿<local:WindowSplashScreen x:Class="BalanceSheet.StartupScreen.SplashScreenUC"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:local="clr-namespace:BalanceSheet.StartupScreen"
+        mc:Ignorable="d"
+        Title="SplashScreenUC" Height="359" Width="500" WindowStyle="None" WindowStartupLocation="CenterScreen" Background="Transparent" 
+        AllowsTransparency="True" ResizeMode="NoResize" ShowInTaskbar="False" Topmost="True" x:Name="splashScreen">
+    <Grid>
+        <Border CornerRadius="10">
+            <Border.Background>
+                <ImageBrush ImageSource="{Binding Source=Images/Splashscreen.png}"></ImageBrush>
+            </Border.Background>
+
+            <Border.Effect>
+                <DropShadowEffect Color="Gray" BlurRadius="15"/>
+            </Border.Effect>
+        </Border>
+        <StackPanel Width="350" Height="200" Panel.ZIndex="-1" Background="#FF2692C6" Opacity="0.9"/>
+        <StackPanel Width="350" Height="200">
+            <TextBlock HorizontalAlignment="Right" Margin="15">
+                <Run FontSize="36" Foreground="Black" FontFamily="Cambria" FontStyle="Italic">Balan</Run>
+                <Bold FontWeight="ExtraBold" FontSize="36" Foreground="Red" FontFamily="Cambria">C</Bold>
+                <Run FontSize="36" Foreground="Black" FontStyle="Italic" FontFamily="Cambria">e Sheet</Run>
+            </TextBlock>
+            <TextBlock x:Name="textBlockVersion" Width="85" HorizontalAlignment="Right" Margin="0,0,25,0" 
+                       Foreground="Red" FontFamily="Cambria">
+            </TextBlock>
+            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Margin="15,0">
+                <TextBlock HorizontalAlignment="Left" 
+                           Text="Lizenziert für: " Foreground="Black" FontFamily="Cambria"/>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Margin="15,5">
+                <TextBlock HorizontalAlignment="Right" 
+                           Foreground="Black" FontFamily="Cambria" Text="{Binding ElementName=splashScreen, Path=Licensee}"/>
+            </StackPanel>
+            <Controls:MetroProgressBar Foreground="Red" Height="17" Width="270" Margin="0, 10" IsIndeterminate="True" Background="#FF007ACC"/>
+            <TextBlock Width="336" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="15,15,15,15" 
+                       FontFamily="Cambria" Foreground="Black" FontSize="12" 
+                       Text="Copyright © Dzianis Kachanau 2016. All rights reserved">
+            </TextBlock>
+        </StackPanel>
+    </Grid>
+</local:WindowSplashScreen>

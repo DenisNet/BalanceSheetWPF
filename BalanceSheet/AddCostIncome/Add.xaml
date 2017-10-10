@@ -1,0 +1,207 @@
+﻿<Controls:MetroWindow x:Class="BalanceSheet.AddCostIncome.Add"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:local="clr-namespace:BalanceSheet.AddCostIncome"
+        mc:Ignorable="d"
+        Height="308" Width="360" ResizeMode="NoResize" WindowStartupLocation="CenterOwner" ShowInTaskbar="False" Loaded="MetroWindow_Loaded">
+    <Grid x:Name="gridMain">
+        <Button x:Name="addBtn" Content="Annehmen" HorizontalAlignment="Left" Margin="20,233,0,0" VerticalAlignment="Top" Width="116" Click="addBtn_Click" IsDefault="True" />
+
+        <Button x:Name="cancelBtn" Content="Abbruch" HorizontalAlignment="Left" Margin="220,233,0,0" VerticalAlignment="Top" Width="120" IsCancel="True" Click="cancelBtn_Click" />
+
+        <Label Content="Name" HorizontalAlignment="Left" Margin="20,120,0,0" VerticalAlignment="Top" Width="90"/>
+        
+        <Label Content="Betrag" HorizontalAlignment="Left" Margin="20,148,0,0" VerticalAlignment="Top" Width="90"/>
+        
+        <Label Content="Datum" HorizontalAlignment="Left" Margin="20,178,0,0" VerticalAlignment="Top" Width="90"/>
+
+        <TextBox x:Name="nameTxBxAdd" Controls:TextBoxHelper.Watermark="Bitte ein Name eingeben" HorizontalAlignment="Left" Height="23" Margin="110,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" ToolTip="Bitte ein Name eingeben" Controls:TextBoxHelper.ClearTextButton="True" Text="{Binding Path=Name, UpdateSourceTrigger=LostFocus, ValidatesOnExceptions=True }"/>
+
+        <TextBox x:Name="priceTxBxAdd" Language="De-de" Controls:TextBoxHelper.Watermark="Bitte ein Betrag eingeben" HorizontalAlignment="Left" Height="23" Margin="110,148,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" ToolTip="Bitte ein Betrag eingeben" Controls:TextBoxHelper.ClearTextButton="True" Text="{Binding Path=Price, UpdateSourceTrigger=LostFocus, ValidatesOnExceptions=True}"/>
+
+        <DatePicker Language="de-DE" x:Name="dataPickerAdd" Controls:TextBoxHelper.Watermark="Bitte eine Datum auswählen" HorizontalAlignment="Left" Margin="110,176,0,0" VerticalAlignment="Top" Width="230" SelectedDateFormat="Short" ToolTip="Bitte eine Datum auswählen"/>
+        
+        <Label Content="{Binding (Validation.Errors)[0].ErrorContent}" Width="271" Height="36" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="Red" x:Name="lblError" Margin="20,10,0,181.5"/>
+
+        <Label Content="Kategorie" HorizontalAlignment="Left" Margin="20,64,0,0" VerticalAlignment="Top" Width="90"/>
+
+        <Label Content="Unterkategorie" HorizontalAlignment="Left" Margin="20,92,0,0" VerticalAlignment="Top" Width="90"/>
+        
+        <!--Category-->
+        <Grid x:Name="ComboBoxAll">
+        
+        <ComboBox x:Name="comboBoxCostCategory" HorizontalAlignment="Left" Height="23" Margin="110,64,0,0" VerticalAlignment="Top" Width="230" ToolTip="Выберите пожалуйста категорию" SelectionChanged="CostCategory_SelectionChanged" SelectedValue="{Binding Path=Category, UpdateSourceTrigger=LostFocus, ValidatesOnExceptions=true}">
+                <ComboBoxItem Content="-- Wählen Sie eine Kategorie --"/>
+                <ComboBoxItem Content="Alles ins Haus"/>
+                <ComboBoxItem Content="Andere"/>
+                <ComboBoxItem Content="Bildung"/>
+                <ComboBoxItem Content="Fixkosten"/>
+                <ComboBoxItem Content="Kraftfahrzeug"/>
+                <ComboBoxItem Content="Lebensmittel"/>
+                <ComboBoxItem Content="Persönliche kosten"/>
+                <ComboBoxItem Content="Soft/Service"/>
+                <ComboBoxItem Content="Unterhaltung"/>
+                <ComboBoxItem Content="Urlaub"/>
+                <ComboBoxItem Content="Verkehr"/>
+        </ComboBox>
+        
+        <ComboBox x:Name="comboBoxIncomeCategory" HorizontalAlignment="Left" Height="23" Margin="110,64,0,0" VerticalAlignment="Top" Width="230" ToolTip="Выберите пожалуйста категорию" SelectionChanged="IncomeCategory_SelectionChanged" SelectedValue="{Binding Path=Category, UpdateSourceTrigger=LostFocus, ValidatesOnExceptions=true}">
+                <ComboBoxItem Content="-- Wählen Sie eine Kategorie --"/>
+                <ComboBoxItem Content="Gehalt"/>
+                <ComboBoxItem Content="Andere Einkommen"/>
+        </ComboBox>
+
+       <!--Under Category-->
+            <Grid x:Name="gridUnderCategory">
+
+                <ComboBox x:Name="comboBoxCostUnderCategoryFiks" HorizontalAlignment="Left" Height="23" Margin="110,92,0,0" VerticalAlignment="Top" Width="230" SelectionChanged="UnderCategory_SelectionChanged"  ToolTip="Wählen Sie bitte eine Unterkategorie" Visibility="Visible" SelectedValue="{Binding Path=UnderCategory, UpdateSourceTrigger=LostFocus, ValidatesOnExceptions=True}">
+                    <ComboBoxItem Content="-- Wählen Sie eine Unterkategorie --"/>
+                    <ComboBoxItem Content="Bankdienstleistung "/>
+                    <ComboBoxItem Content="Depositum"/>
+                    <ComboBoxItem Content="Fernsehen"/>
+                    <ComboBoxItem Content="Grundschuld/Miete"/>
+                    <ComboBoxItem Content="Internet"/>
+                    <ComboBoxItem Content="Kredit"/>
+                    <ComboBoxItem Content="Ne­ben­kos­ten"/>
+                    <ComboBoxItem Content="Steuern"/>
+                    <ComboBoxItem Content="Telefonie"/>
+                    <ComboBoxItem Content="Versicherung"/>
+        </ComboBox>
+
+                <ComboBox x:Name="comboBoxCostUnderCategoryProd" HorizontalAlignment="Left" Height="23" Margin="110,92,0,0" VerticalAlignment="Top" Width="230" SelectionChanged="UnderCategory_SelectionChanged" ToolTip="Wählen Sie bitte eine Unterkategorie" Visibility="Collapsed" SelectedValue="{Binding Path=UnderCategory, UpdateSourceTrigger=LostFocus, ValidatesOnExceptions=True}">
+                    <ComboBoxItem Content="-- Wählen Sie eine Unterkategorie --"/>
+                    <ComboBoxItem Content="Andere"/>
+                    <ComboBoxItem Content="Backwaren"/>
+                    <ComboBoxItem Content="Fleisch, Fisch"/>
+                    <ComboBoxItem Content="Gemüse, Obst"/>
+                    <ComboBoxItem Content="Getränke"/>
+                    <ComboBoxItem Content="Milchprodukte "/>
+                    <ComboBoxItem Content="Süßigkeiten"/>
+        </ComboBox>
+
+                <ComboBox x:Name="comboBoxCostUnderCategoryTransport" HorizontalAlignment="Left" Height="23" Margin="110,92,0,0" VerticalAlignment="Top" Width="230" Visibility="Collapsed" SelectionChanged="UnderCategory_SelectionChanged" ToolTip="Wählen Sie bitte eine Unterkategorie" SelectedValue="{Binding Path=UnderCategory, UpdateSourceTrigger=LostFocus, ValidatesOnExceptions=True}">
+                    <ComboBoxItem Content="-- Wählen Sie eine Unterkategorie --"/>
+                    <ComboBoxItem Content="Andere"/>
+                    <ComboBoxItem Content="Bahnticket"/>
+                    <ComboBoxItem Content="Einzelticket"/>
+                    <ComboBoxItem Content="Flugticket"/>
+                    <ComboBoxItem Content="Monat Ticket"/>
+                    <ComboBoxItem Content="Taxi"/>
+                </ComboBox>
+
+                <ComboBox x:Name="comboBoxCostUnderCategoryAuto" HorizontalAlignment="Left" Height="23" Margin="110,92,0,0" VerticalAlignment="Top" Width="230" Visibility="Collapsed" SelectionChanged="UnderCategory_SelectionChanged" ToolTip="Wählen Sie bitte eine Unterkategorie" SelectedValue="{Binding Path=UnderCategory, UpdateSourceTrigger=LostFocus, ValidatesOnExceptions=True}">
+                    <ComboBoxItem Content="-- Wählen Sie eine Unterkategorie --"/>
+                    <ComboBoxItem Content="Andere"/>
+                    <ComboBoxItem Content="Kraftstoff"/>
+                    <ComboBoxItem Content="Steuern, Bußgelder"/>
+                    <ComboBoxItem Content="Reparatur"/>
+                    <ComboBoxItem Content="Versicherung"/>
+                    <ComboBoxItem Content="Waschen"/>
+                </ComboBox>
+
+                <ComboBox x:Name="comboBoxCostUnderCategoryRazwlech" HorizontalAlignment="Left" Height="23" Margin="110,92,0,0" VerticalAlignment="Top" Width="230" Visibility="Collapsed" SelectionChanged="UnderCategory_SelectionChanged" ToolTip="Wählen Sie bitte eine Unterkategorie" SelectedValue="{Binding Path=UnderCategory, UpdateSourceTrigger=LostFocus, ValidatesOnExceptions=True}">
+                    <ComboBoxItem Content="-- Wählen Sie eine Unterkategorie --"/>
+                    <ComboBoxItem Content="Andere"/>
+                    <ComboBoxItem Content="Cafe"/>
+                    <ComboBoxItem Content="Kino"/>
+                    <ComboBoxItem Content="Pizza"/>
+                    <ComboBoxItem Content="Restaurant"/>
+                </ComboBox>
+
+                <ComboBox x:Name="comboBoxCostUnderCategorySelbst" HorizontalAlignment="Left" Height="23" Margin="110,92,0,0" VerticalAlignment="Top" Width="230" Visibility="Collapsed" SelectionChanged="UnderCategory_SelectionChanged" ToolTip="Wählen Sie bitte eine Unterkategorie" SelectedValue="{Binding Path=UnderCategory, UpdateSourceTrigger=LostFocus, ValidatesOnExceptions=True}">
+                    <ComboBoxItem Content="-- Wählen Sie eine Unterkategorie --"/>
+                    <ComboBoxItem Content="Accessoires"/>
+                    <ComboBoxItem Content="Andere"/>
+                    <ComboBoxItem Content="Frisörsalon"/>
+                    <ComboBoxItem Content="Kleidung"/>
+                    <ComboBoxItem Content="Kosmetik"/>
+                    <ComboBoxItem Content="Medizin"/>
+                    <ComboBoxItem Content="Schönheit/Wellness"/>
+                </ComboBox>
+
+                <ComboBox x:Name="comboBoxCostUnderCategoryReise" HorizontalAlignment="Left" Height="23" Margin="110,92,0,0" VerticalAlignment="Top" Width="230" Visibility="Collapsed" SelectionChanged="UnderCategory_SelectionChanged" ToolTip="Wählen Sie bitte eine Unterkategorie" SelectedValue="{Binding Path=UnderCategory, UpdateSourceTrigger=LostFocus, ValidatesOnExceptions=True}">
+                    <ComboBoxItem Content="-- Wählen Sie eine Unterkategorie --"/>
+                    <ComboBoxItem Content="Andere"/>
+                    <ComboBoxItem Content="Belarus"/>
+                    <ComboBoxItem Content="China"/>
+                    <ComboBoxItem Content="Deutschland"/>
+                    <ComboBoxItem Content="Dominikanische Republik"/>
+                    <ComboBoxItem Content="Frankreich"/>
+                    <ComboBoxItem Content="Griechenland"/>
+                    <ComboBoxItem Content="Indien"/>
+                    <ComboBoxItem Content="Italien"/>
+                    <ComboBoxItem Content="Kambodscha"/>
+                    <ComboBoxItem Content="Kenia"/>
+                    <ComboBoxItem Content="Kuba"/>
+                    <ComboBoxItem Content="Malediven"/>
+                    <ComboBoxItem Content="Mauritius"/>
+                    <ComboBoxItem Content="Montenegro"/>
+                    <ComboBoxItem Content="Mexiko"/>
+                    <ComboBoxItem Content="Niederlande"/>
+                    <ComboBoxItem Content="Philippinen"/>
+                    <ComboBoxItem Content="Polen"/>
+                    <ComboBoxItem Content="Portugal"/>
+                    <ComboBoxItem Content="Russland"/>
+                    <ComboBoxItem Content="Schweiz"/>
+                    <ComboBoxItem Content="Spanien"/>
+                    <ComboBoxItem Content="Sri Lanka"/>
+                    <ComboBoxItem Content="Thailand"/>
+                    <ComboBoxItem Content="Tunesien"/>
+                    <ComboBoxItem Content="Türkei"/>
+                    <ComboBoxItem Content="Ukraine"/>
+                    <ComboBoxItem Content="VAE"/>
+                    <ComboBoxItem Content="Vereinigte Staaten"/>
+                    <ComboBoxItem Content="Ägypten"/>
+                </ComboBox>
+
+                <ComboBox x:Name="comboBoxCostUnderCategorySoft" HorizontalAlignment="Left" Height="23" Margin="110,92,0,0" VerticalAlignment="Top" Width="230" Visibility="Collapsed" SelectionChanged="UnderCategory_SelectionChanged" ToolTip="Wählen Sie bitte eine Unterkategorie" SelectedValue="{Binding Path=UnderCategory, UpdateSourceTrigger=LostFocus, ValidatesOnExceptions=True}">
+                    <ComboBoxItem Content="-- Wählen Sie eine Unterkategorie --"/>
+                    <ComboBoxItem Content="Apps"/>
+                    <ComboBoxItem Content="Andere"/>
+                    <ComboBoxItem Content="Antivirus "/>
+                    <ComboBoxItem Content="OS"/>
+                </ComboBox>
+
+                <ComboBox x:Name="comboBoxCostUnderCategoryHouse" HorizontalAlignment="Left" Height="23" Margin="110,92,0,0" VerticalAlignment="Top" Width="230" Visibility="Collapsed" SelectionChanged="UnderCategory_SelectionChanged" ToolTip="Wählen Sie bitte eine Unterkategorie" SelectedValue="{Binding Path=UnderCategory, UpdateSourceTrigger=LostFocus, ValidatesOnExceptions=True}">
+                    <ComboBoxItem Content="-- Wählen Sie eine Unterkategorie --"/>
+                    <ComboBoxItem Content="Andere"/>
+                    <ComboBoxItem Content="Haushaltswaren"/>
+                    <ComboBoxItem Content="Möbel, Haushaltsgeräte "/>
+                    <ComboBoxItem Content="Renovierung"/>
+                </ComboBox>
+
+                <ComboBox x:Name="comboBoxCostUnderCategoryStudium" HorizontalAlignment="Left" Height="23" Margin="110,92,0,0" VerticalAlignment="Top" Width="230" Visibility="Collapsed" ToolTip="Wählen Sie bitte eine Unterkategorie" SelectedValue="{Binding Path=UnderCategory, UpdateSourceTrigger=LostFocus, ValidatesOnExceptions=True}">
+                    <ComboBoxItem Content="-- Wählen Sie eine Unterkategorie --"/>
+                    <ComboBoxItem Content="Andere"/>
+                    <ComboBoxItem Content="Bücher, Zeitschriften"/>
+                    <ComboBoxItem Content="Kurse, Schulungen"/>
+                    <ComboBoxItem Content="Uni, Schule, Hochschule"/>
+                </ComboBox>
+
+                <ComboBox x:Name="comboBoxCostUnderCategoryAndere" HorizontalAlignment="Left" Height="23" Margin="110,92,0,0" VerticalAlignment="Top" Width="230" Visibility="Collapsed" SelectionChanged="UnderCategory_SelectionChanged" ToolTip="Wählen Sie bitte eine Unterkategorie" SelectedValue="{Binding Path=UnderCategory, UpdateSourceTrigger=LostFocus, ValidatesOnExceptions=True}">
+                    <ComboBoxItem Content="-- Wählen Sie eine Unterkategorie --"/>
+                    <ComboBoxItem Content="Andere"/>
+                    <ComboBoxItem Content="Geschenke"/>
+                    <ComboBoxItem Content="Hilfe"/>
+                </ComboBox>
+
+                <ComboBox x:Name="comboBoxUnderIncomeCategoryLohn" HorizontalAlignment="Left" Height="23" Margin="110,92,0,0" VerticalAlignment="Top" Width="230" Visibility="Collapsed" SelectionChanged="UnderCategory_SelectionChanged" ToolTip="Wählen Sie bitte eine Unterkategorie" SelectedValue="{Binding Path=UnderCategory, UpdateSourceTrigger=LostFocus, ValidatesOnExceptions=True}">
+                    <ComboBoxItem Content="-- Wählen Sie eine Unterkategorie --"/>
+                    <ComboBoxItem Content="Andere"/>
+                    <ComboBoxItem Content="Ehefrau"/>
+                    <ComboBoxItem Content="Ehemann"/>
+                </ComboBox>
+
+                <ComboBox x:Name="comboBoxUnderIncomeCategoryAndere" HorizontalAlignment="Left" Height="23" Margin="110,92,0,0" VerticalAlignment="Top" Width="230" Visibility="Collapsed" SelectionChanged="UnderCategory_SelectionChanged" ToolTip="Wählen Sie bitte eine Unterkategorie" SelectedValue="{Binding Path=UnderCategory, UpdateSourceTrigger=LostFocus, ValidatesOnExceptions=True}">
+                    <ComboBoxItem Content="-- Wählen Sie eine Unterkategorie --"/>
+                    <ComboBoxItem Content="Andere"/>
+                    <ComboBoxItem Content="Neben Job"/>
+                    <ComboBoxItem Content="Verkauf von Sachen"/>
+                </ComboBox>
+            </Grid>
+        </Grid>
+    </Grid>
+</Controls:MetroWindow>

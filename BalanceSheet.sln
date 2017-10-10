@@ -1,0 +1,70 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BalanceSheet", "BalanceSheet\BalanceSheet.csproj", "{FC256F9D-B98B-4A56-8AB8-CCEB4C14B334}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MahApps.Metro.NET45", "MahApps\MahApps.Metro\MahApps.Metro.NET45.csproj", "{942D11C4-29F5-46C4-8C14-4B976D56C637}"
+EndProject
+Project("{6141683F-8A12-4E36-9623-2EB02B2C2303}") = "Setup1", "Setup1\Setup1.isproj", "{ADDB8972-1A94-4907-BDBA-15177673766C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		CD_ROM|Any CPU = CD_ROM|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		DVD-5|Any CPU = DVD-5|Any CPU
+		Release|Any CPU = Release|Any CPU
+		SingleImage|Any CPU = SingleImage|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FC256F9D-B98B-4A56-8AB8-CCEB4C14B334}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{FC256F9D-B98B-4A56-8AB8-CCEB4C14B334}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{FC256F9D-B98B-4A56-8AB8-CCEB4C14B334}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC256F9D-B98B-4A56-8AB8-CCEB4C14B334}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC256F9D-B98B-4A56-8AB8-CCEB4C14B334}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC256F9D-B98B-4A56-8AB8-CCEB4C14B334}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{FC256F9D-B98B-4A56-8AB8-CCEB4C14B334}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC256F9D-B98B-4A56-8AB8-CCEB4C14B334}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC256F9D-B98B-4A56-8AB8-CCEB4C14B334}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{FC256F9D-B98B-4A56-8AB8-CCEB4C14B334}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+		{942D11C4-29F5-46C4-8C14-4B976D56C637}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{942D11C4-29F5-46C4-8C14-4B976D56C637}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{942D11C4-29F5-46C4-8C14-4B976D56C637}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{942D11C4-29F5-46C4-8C14-4B976D56C637}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{942D11C4-29F5-46C4-8C14-4B976D56C637}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{942D11C4-29F5-46C4-8C14-4B976D56C637}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{942D11C4-29F5-46C4-8C14-4B976D56C637}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{942D11C4-29F5-46C4-8C14-4B976D56C637}.Release|Any CPU.Build.0 = Release|Any CPU
+		{942D11C4-29F5-46C4-8C14-4B976D56C637}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{942D11C4-29F5-46C4-8C14-4B976D56C637}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+		{ADDB8972-1A94-4907-BDBA-15177673766C}.CD_ROM|Any CPU.ActiveCfg = CD_ROM
+		{ADDB8972-1A94-4907-BDBA-15177673766C}.CD_ROM|Any CPU.Build.0 = CD_ROM
+		{ADDB8972-1A94-4907-BDBA-15177673766C}.Debug|Any CPU.ActiveCfg = DVD-5
+		{ADDB8972-1A94-4907-BDBA-15177673766C}.Debug|Any CPU.Build.0 = DVD-5
+		{ADDB8972-1A94-4907-BDBA-15177673766C}.DVD-5|Any CPU.ActiveCfg = DVD-5
+		{ADDB8972-1A94-4907-BDBA-15177673766C}.DVD-5|Any CPU.Build.0 = DVD-5
+		{ADDB8972-1A94-4907-BDBA-15177673766C}.Release|Any CPU.ActiveCfg = SingleImage
+		{ADDB8972-1A94-4907-BDBA-15177673766C}.Release|Any CPU.Build.0 = SingleImage
+		{ADDB8972-1A94-4907-BDBA-15177673766C}.SingleImage|Any CPU.ActiveCfg = SingleImage
+		{ADDB8972-1A94-4907-BDBA-15177673766C}.SingleImage|Any CPU.Build.0 = SingleImage
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://balancesheetv5.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = BalanceSheet\\BalanceSheet.csproj
+		SccProjectName1 = BalanceSheet
+		SccLocalPath1 = BalanceSheet
+		SccProjectUniqueName2 = MahApps\\MahApps.Metro\\MahApps.Metro.NET45.csproj
+		SccProjectName2 = MahApps/MahApps.Metro
+		SccLocalPath2 = MahApps\\MahApps.Metro
+		SccProjectUniqueName3 = Setup1\\Setup1.isproj
+		SccProjectName3 = Setup1
+		SccLocalPath3 = Setup1
+	EndGlobalSection
+EndGlobal

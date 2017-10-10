@@ -1,0 +1,15 @@
+﻿<Controls:MetroWindow x:Class="BalanceSheet.MenuHelp.AboutProgramm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BalanceSheet.MenuHelp"
+                xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        mc:Ignorable="d"
+        Title="About programm" Height="200" Width="300" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" EnableDWMDropShadow="True" WindowStyle="ThreeDBorderWindow" ShowInTaskbar="False">
+    <Grid>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="67,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" Height="26" FontFamily="Cambria"/>
+        <Button x:Name="button" Content="OK" HorizontalAlignment="Left" Margin="93,106,0,0" VerticalAlignment="Top" Width="75" Click="Close_Click"/>
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="67,29,0,0" TextWrapping="Wrap" Text="Lizenziert für Eva Hack" VerticalAlignment="Top" Width="125" Height="26" FontFamily="Cambria"/>
+    </Grid>
+</Controls:MetroWindow>
